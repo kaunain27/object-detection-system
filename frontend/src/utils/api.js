@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+const baseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
+
 const api = axios.create({
-  baseURL: '/api/v1',
+  baseURL: `${baseUrl}/api/v1`,
   timeout: 120000, // 2min for video detection
 })
 
