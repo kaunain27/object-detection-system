@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     ALLOWED_VIDEO_EXTENSIONS: str = ".mp4,.avi,.mov,.mkv,.webm,.m4v,.mpeg,.mpg,.wmv,.flv,.3gp"
 
     # YOLO settings
-    YOLO_MODEL: str = "yolov8m.pt"
+    YOLO_MODEL: str = "yolov8n.pt"
     CONFIDENCE_THRESHOLD: float = 0.45
     IOU_THRESHOLD: float = 0.45
     MAX_DETECTIONS: int = 300
