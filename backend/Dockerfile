@@ -12,8 +12,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Pre-download YOLOv8 model
-RUN python -c "from ultralytics import YOLO; YOLO('yolov8n.pt')" || true
+# Pre-download YOLOv8 model (trusted checkpoint)
+RUN TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1 python -c "from ultralytics import YOLO; YOLO('yolov8n.pt')" || true
 
 RUN mkdir -p uploads/results
 
