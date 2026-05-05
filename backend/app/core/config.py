@@ -28,11 +28,11 @@ class Settings(BaseSettings):
     YOLO_MODEL: str = "yolov8n.pt"
     CONFIDENCE_THRESHOLD: float = 0.45
     IOU_THRESHOLD: float = 0.45
-    MAX_DETECTIONS: int = 300
-    YOLO_IMAGE_SIZE: int = 1280
+    MAX_DETECTIONS: int = 100
+    YOLO_IMAGE_SIZE: int = 640
     YOLO_AUGMENT: bool = False
     YOLO_AGNOSTIC_NMS: bool = False
-    VIDEO_SAMPLE_FPS: int = 10
+    VIDEO_SAMPLE_FPS: int = 5
     MIN_BOX_AREA_RATIO: float = 0.003
     SMALL_BOX_HIGH_CONF_THRESHOLD: float = 0.65
 

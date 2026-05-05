@@ -35,6 +35,7 @@ class DetectionService:
             "iou": iou,
             "max_det": settings.MAX_DETECTIONS,
             "imgsz": settings.YOLO_IMAGE_SIZE,
+            "device": "cpu",
             "augment": settings.YOLO_AUGMENT,
             "agnostic_nms": settings.YOLO_AGNOSTIC_NMS,
             "verbose": False,
