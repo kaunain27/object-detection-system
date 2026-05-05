@@ -4,8 +4,16 @@ from app.core.config import get_settings
 
 settings = get_settings()
 
+
+def _normalize_async_db_url(url: str) -> str:
+    if url.startswith("postgresql://"):
+        return url.replace("postgresql://", "postgresql+asyncpg://", 1)
+    if url.startswith("postgres://"):
+        return url.replace("postgres://", "postgresql+asyncpg://", 1)
+    return url
+
 engine = create_async_engine(
-    settings.DATABASE_URL,
+    _normalize_async_db_url(settings.DATABASE_URL),
     echo=settings.DEBUG,
     future=True,
 )
