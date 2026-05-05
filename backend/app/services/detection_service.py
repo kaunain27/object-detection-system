@@ -139,6 +139,13 @@ class DetectionService:
                 "If this is AVIF/HEIC, ensure decoder support is installed."
             ) from exc
 
+        # Downscale large images to reduce memory and inference time
+        max_side = max(img.size)
+        if max_side > settings.MAX_IMAGE_SIDE:
+            scale = settings.MAX_IMAGE_SIDE / float(max_side)
+            new_size = (int(img.size[0] * scale), int(img.size[1] * scale))
+            img = img.resize(new_size, Image.BILINEAR)
+
         # Use in-memory pixels instead of file path so inference is not blocked
         # by Ultralytics file-extension source filtering.
         results = model.predict(np.array(img), **cls._predict_kwargs(confidence, iou))

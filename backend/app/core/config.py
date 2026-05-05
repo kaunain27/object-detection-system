@@ -19,6 +19,7 @@ class Settings(BaseSettings):
     # Upload settings
     UPLOAD_DIR: str = "uploads"
     MAX_UPLOAD_SIZE_MB: int = 50
+    MAX_IMAGE_SIDE: int = 1024
     ALLOWED_IMAGE_TYPES: str = "image/*"
     ALLOWED_VIDEO_TYPES: str = "video/*"
     ALLOWED_IMAGE_EXTENSIONS: str = ".jpg,.jpeg,.jpe,.png,.webp,.gif,.bmp,.tif,.tiff,.heic,.heif,.avif"
