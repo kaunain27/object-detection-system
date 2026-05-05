@@ -1,0 +1,53 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ODS: Start (Docker)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/scripts/start.ps1"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "ODS: Run Attached (Docker)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/scripts/run.ps1"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "ODS: Logs (Docker)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/scripts/logs.ps1"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "ODS: Stop (Docker)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/scripts/stop.ps1"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
