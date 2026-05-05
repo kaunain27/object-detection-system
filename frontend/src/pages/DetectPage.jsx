@@ -127,9 +127,9 @@ export default function DetectPage() {
           ) : (
             <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', overflow: 'hidden', marginBottom: 20 }}>
               {/* File header */}
-              <div style={{ padding: '14px 18px', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: 10 }}>
+              <div style={{ padding: '14px 18px', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
                 {isVideo ? <Video size={18} color="var(--blue)" /> : <ImageIcon size={18} color="var(--teal)" />}
-                <div style={{ flex: 1, overflow: 'hidden' }}>
+                <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: 13, fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{file.name}</div>
                   <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{(file.size / 1024 / 1024).toFixed(2)} MB · {file.type}</div>
                 </div>
@@ -139,8 +139,8 @@ export default function DetectPage() {
               </div>
               {/* Preview */}
               {preview && (
-                <div style={{ maxHeight: 320, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#000' }}>
-                  <img src={preview} alt="preview" style={{ maxHeight: 320, objectFit: 'contain' }} />
+                <div style={{ maxHeight: 'var(--preview-max-h)', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#000' }}>
+                  <img src={preview} alt="preview" style={{ maxHeight: 'var(--preview-max-h)', objectFit: 'contain' }} />
                 </div>
               )}
               {isVideo && (
@@ -206,11 +206,11 @@ export default function DetectPage() {
 
               {/* Annotated image */}
               {result.file_type === 'image' && result.result_filename && (
-                <div style={{ background: '#000', minHeight: 220, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ background: '#000', minHeight: 'var(--preview-max-h)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   {resultImageLoading && <span style={{ fontSize: 13, color: 'var(--text-secondary)' }}>Loading image...</span>}
                   {!resultImageLoading && resultImageError && <span style={{ fontSize: 13, color: 'var(--red)' }}>{resultImageError}</span>}
                   {!resultImageLoading && !resultImageError && resultImageUrl && (
-                    <img src={resultImageUrl} alt="annotated" style={{ width: '100%', maxHeight: 360, objectFit: 'contain' }} />
+                    <img src={resultImageUrl} alt="annotated" style={{ width: '100%', maxHeight: 'var(--preview-max-h)', objectFit: 'contain' }} />
                   )}
                 </div>
               )}

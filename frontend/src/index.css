@@ -30,6 +30,7 @@
   --detect-cols: 1fr 1fr;
   --result-stats-cols: 3;
   --history-cols: 2fr 80px 100px 100px 100px 44px;
+  --preview-max-h: 320px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,6 +44,7 @@ body {
   min-height: 100vh;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 /* Scrollbar */
@@ -93,6 +95,7 @@ img { max-width: 100%; display: block; }
     --detect-cols: 1fr;
     --result-stats-cols: 2;
     --history-cols: 1.6fr 70px 90px 90px 90px 40px;
+    --preview-max-h: 260px;
   }
 }
 
@@ -103,6 +106,7 @@ img { max-width: 100%; display: block; }
     --stat-cols: 1;
     --result-stats-cols: 1;
     --history-cols: 1fr 0 0 0 80px 36px;
+    --preview-max-h: 220px;
   }
 
   .app-layout { flex-direction: column; }
@@ -122,5 +126,6 @@ img { max-width: 100%; display: block; }
 @media (max-width: 600px) {
   :root {
     --page-pad: 18px 14px 32px;
+    --preview-max-h: 200px;
   }
 }
