@@ -28,7 +28,7 @@ export default function HistoryPage() {
   }
 
   return (
-    <div style={{ padding: '40px 40px 60px', animation: 'fadeIn 0.4s ease' }}>
+    <div style={{ padding: 'var(--page-pad)', animation: 'fadeIn 0.4s ease' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32 }}>
         <div>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--teal)', letterSpacing: 2, marginBottom: 8 }}>DETECTION LOG</div>
@@ -58,12 +58,12 @@ export default function HistoryPage() {
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           {/* Header row */}
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 80px 100px 100px 100px 44px', gap: 12, padding: '8px 18px', fontSize: 11, color: 'var(--text-muted)', fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'var(--history-cols)', gap: 12, padding: '8px 18px', fontSize: 11, color: 'var(--text-muted)', fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase' }}>
             <span>File</span><span>Type</span><span>Objects</span><span>Time</span><span>Status</span><span />
           </div>
 
           {detections.map(d => (
-            <div key={d.id} onClick={() => navigate(`/history/${d.id}`)} style={{ display: 'grid', gridTemplateColumns: '2fr 80px 100px 100px 100px 44px', gap: 12, padding: '14px 18px', background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', alignItems: 'center', cursor: 'pointer', transition: 'var(--transition)' }}
+            <div key={d.id} onClick={() => navigate(`/history/${d.id}`)} style={{ display: 'grid', gridTemplateColumns: 'var(--history-cols)', gap: 12, padding: '14px 18px', background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', alignItems: 'center', cursor: 'pointer', transition: 'var(--transition)' }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--border-light)'; e.currentTarget.style.background = 'var(--bg-card-hover)' }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.background = 'var(--bg-card)' }}
             >

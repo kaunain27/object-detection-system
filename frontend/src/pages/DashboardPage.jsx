@@ -28,7 +28,7 @@ export default function DashboardPage() {
   ] : []
 
   return (
-    <div style={{ padding: '40px 40px 60px', animation: 'fadeIn 0.4s ease' }}>
+    <div style={{ padding: 'var(--page-pad)', animation: 'fadeIn 0.4s ease' }}>
       {/* Header */}
       <div style={{ marginBottom: 36 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
@@ -43,13 +43,13 @@ export default function DashboardPage() {
 
       {/* Stat cards */}
       {loading ? (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18, marginBottom: 32 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(var(--stat-cols), 1fr)', gap: 18, marginBottom: 32 }}>
           {[...Array(4)].map((_, i) => (
             <div key={i} style={{ height: 110, background: 'var(--bg-card)', borderRadius: 'var(--radius)', border: '1px solid var(--border)', animation: 'pulse 2s infinite' }} />
           ))}
         </div>
       ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18, marginBottom: 32 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(var(--stat-cols), 1fr)', gap: 18, marginBottom: 32 }}>
           {statCards.map(({ label, value, icon: Icon, color }) => (
             <div key={label} style={{ background: 'var(--bg-card)', borderRadius: 'var(--radius)', border: '1px solid var(--border)', padding: '22px 24px', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: color }} />
@@ -61,7 +61,7 @@ export default function DashboardPage() {
         </div>
       )}
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginBottom: 24 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'var(--dashboard-cols)', gap: 24, marginBottom: 24 }}>
         {/* Chart */}
         <div style={{ background: 'var(--bg-card)', borderRadius: 'var(--radius)', border: '1px solid var(--border)', padding: 24 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>

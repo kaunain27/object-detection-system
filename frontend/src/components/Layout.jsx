@@ -17,10 +17,10 @@ export default function Layout() {
   const handleLogout = () => { logout(); navigate('/login') }
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh' }}>
+    <div className="app-layout" style={{ display: 'flex', minHeight: '100vh' }}>
       {/* Sidebar */}
-      <aside style={{
-        width: 240, background: 'var(--bg-secondary)', borderRight: '1px solid var(--border)',
+      <aside className="app-sidebar" style={{
+        width: 'var(--sidebar-width)', background: 'var(--bg-secondary)', borderRight: '1px solid var(--border)',
         display: 'flex', flexDirection: 'column', position: 'fixed', top: 0, left: 0, bottom: 0,
         zIndex: 100,
       }}>
@@ -41,7 +41,7 @@ export default function Layout() {
         </div>
 
         {/* Nav */}
-        <nav style={{ flex: 1, padding: '16px 12px' }}>
+        <nav className="app-nav" style={{ flex: 1, padding: '16px 12px' }}>
           {navItems.map(({ to, icon: Icon, label }) => (
             <NavLink key={to} to={to} style={({ isActive }) => ({
               display: 'flex', alignItems: 'center', gap: 12, padding: '10px 14px',
@@ -59,7 +59,7 @@ export default function Layout() {
         </nav>
 
         {/* User footer */}
-        <div style={{ padding: 16, borderTop: '1px solid var(--border)' }}>
+        <div className="app-user" style={{ padding: 16, borderTop: '1px solid var(--border)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
             <div style={{
               width: 32, height: 32, borderRadius: '50%',
@@ -90,7 +90,7 @@ export default function Layout() {
       </aside>
 
       {/* Main content */}
-      <main style={{ marginLeft: 240, flex: 1, minHeight: '100vh', background: 'var(--bg-primary)' }}>
+      <main className="app-main" style={{ marginLeft: 'var(--sidebar-width)', flex: 1, minHeight: '100vh', background: 'var(--bg-primary)' }}>
         <Outlet />
       </main>
     </div>

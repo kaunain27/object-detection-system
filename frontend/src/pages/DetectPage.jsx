@@ -94,14 +94,14 @@ export default function DetectPage() {
   const isVideo = file?.type?.startsWith('video/')
 
   return (
-    <div style={{ padding: '40px 40px 60px', animation: 'fadeIn 0.4s ease' }}>
+    <div style={{ padding: 'var(--page-pad)', animation: 'fadeIn 0.4s ease' }}>
       <div style={{ marginBottom: 32 }}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--teal)', letterSpacing: 2, marginBottom: 8 }}>DETECTION CONSOLE</div>
         <h1 style={{ fontSize: 26, fontWeight: 700, marginBottom: 4 }}>Object Detection</h1>
         <p style={{ color: 'var(--text-secondary)', fontSize: 14 }}>Upload an image or video and let YOLOv8 detect objects in real time.</p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: result ? '1fr 1fr' : '1fr', gap: 24 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: result ? 'var(--detect-cols)' : '1fr', gap: 24 }}>
         {/* Left: upload + settings */}
         <div>
           {/* Dropzone */}
@@ -216,7 +216,7 @@ export default function DetectPage() {
               )}
 
               {/* Stats bar */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', borderBottom: '1px solid var(--border)' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(var(--result-stats-cols), 1fr)', borderBottom: '1px solid var(--border)' }}>
                 {[
                   { label: 'Objects Found', value: result.objects_detected },
                   { label: 'Confidence', value: `${(confidence * 100).toFixed(0)}%` },
